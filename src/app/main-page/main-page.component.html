@@ -1,0 +1,85 @@
+<!--<script src="../app.component.ts"></script>-->
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">-->
+
+<!--  <a class="navbar-brand" style="position: relative; left: 10%; font-size: 30px" href="/">TripMate</a>-->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"-->
+<!--          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+
+<!--  <div class="collapse navbar-collapse" id="navbarColor01" style="position: relative; left: 60% ">-->
+<!--    <ul class="navbar-nav mr-auto">-->
+<!--      <li class="nav-item active">-->
+<!--        <a class="nav-link" href="/home/trip">Twoje przejazdy</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item active">-->
+<!--        <a class="nav-link" href="/home/searchForTrips">Znajdź przejazd</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item active">-->
+<!--        <a class="nav-link" href="/home/tripAdd">Dodaj przejazd</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link js-scroll-trigger mr-4" routerLink="/home/profile" routerLinkActive="active">Profile</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link js-scroll-trigger cursor-pointer" (click)="Logout()"  role="button">Logout</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" style="position: relative; left: 10%; font-size: 25px">SportFreaks</a>
+<!--  TO PONIŻEJ TO ROZWIJALNE MENU ! PRZYDATNE POTEM ! -->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+<!--    <ul class="navbar-nav mr-auto">-->
+<!--      <li class="nav-item active">-->
+<!--        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="#">Features</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="#">Pricing</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="#">About</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+  </div>
+</nav>
+
+
+
+<div id="login" style="margin-top: 150px;">
+  <div class="container">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6 row justify-content-center align-items-center">
+        <div id="login-box" class="col-md-8">
+          <form id="login-form" class="form" #loginForm="ngForm" (ngSubmit)="OnSubmit(email.value, password.value)">
+            <legend class="row justify-content-center align-items-center">Zaloguj się</legend>
+            <div *ngIf="isLoginError" class="row justify-content-center align-items-center">
+              <div class="alert alert-dismissible alert-danger">
+                Niepoprawny email lub hasło.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="text-primary">Email:</label>
+              <input type="email" #email ngModel name="email" id="email" class="form-control" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+              <label for="password" class="text-primary">Hasło:</label>
+              <input type="password" #password ngModel name="password" id="password" class="form-control" placeholder="Enter password" required>
+            </div>
+              <button [disabled]="!loginForm.valid" type="submit" class="btn btn-outline-primary">Zaloguj</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

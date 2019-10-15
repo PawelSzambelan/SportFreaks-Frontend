@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" >SportFreaks</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger cursor-pointer" (click)="Logout()" role="button">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- buttons to navigate between days -->
+<div class="row justify-content-center align-items-center my-4 mx-auto w-50">
+
+  <div class="col-xs-2 page-item active">
+    <button (click)="previousDay();" class="page-link">&laquo;</button>
+  </div>
+  <div class="col-xs-8 page-item">
+    <!--    poprawić, żeby po kliknięciu wyświetlało cały kalendarz w wyborem danego dnia :-)-->
+    <a class="page-link" href="#">{{dateService.getFormattedDate(selectedDate)}}</a>
+  </div>
+  <div class="col-xs-2 page-item active">
+    <button (click)="nextDay();" class="page-link">&raquo;</button>
+  </div>
+</div>
+<div class="row justify-content-center align-items-center my-4 mx-auto w-50">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Godzina</th>
+      <th scope="col">Lekcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="col">8:00</th>
+    </tr>
+    <tr>
+      <th scope="col">8:30</th>
+    </tr>
+    <tr>
+      <th scope="col">9:00</th>
+    </tr>
+    <tr>
+      <th scope="col">9:30</th>
+    </tr>
+    <tr>
+      <th scope="col">10:00</th>
+    </tr>
+    <tr>
+      <th scope="col">10:30</th>
+    </tr>
+    <tr>
+      <th scope="col">11:00</th>
+    </tr>
+    <tr>
+      <th scope="col">11:30</th>
+    </tr>
+    <tr>
+      <th scope="col">12:00</th>
+    </tr>
+    <tr>
+      <th scope="col">12:30</th>
+    </tr>
+    <tr>
+      <th scope="col">13:00</th>
+    </tr>
+    <tr>
+      <th scope="col">13:30</th>
+    </tr>
+    <tr>
+      <th scope="col">14:00</th>
+    </tr>
+    <tr>
+      <th scope="col">14:30</th>
+    </tr>
+    <tr>
+      <th scope="col">15:00</th>
+    </tr>
+    <tr>
+      <th scope="col">15:30</th>
+    </tr>
+
+
+    <tr class="table-dark">
+      <th scope="row">Dark</th>
+      <td>Column content</td>
+    </tr>
+    <tr>
+      <th scope="row">Default</th>
+      <td>Column content</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
