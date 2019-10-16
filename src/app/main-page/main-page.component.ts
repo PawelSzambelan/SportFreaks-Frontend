@@ -22,10 +22,10 @@ export class MainPageComponent implements OnInit {
     this.userService.userAuthentication(email, password).subscribe((data: any) => {
         console.log(data); // wyświetlenie tokenu
         localStorage.setItem('userToken', data.token);
-        console.log(data.userRule);
-        if (data.userRule === 'instructor') {
+        console.log(data.userRuleName);
+        if (data.userRuleName === 'instructor') {
           this.router.navigate(['/instructor']);
-        } else if (data.userRule === 'receptionist' || data.userRule === 'admin') {
+        } else if (data.userRuleName === 'receptionist' || data.userRuleName === 'admin') {
           this.router.navigate(['/reception']);
         }
       },

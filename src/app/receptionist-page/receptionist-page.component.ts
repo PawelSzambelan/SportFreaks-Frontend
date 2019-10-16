@@ -13,4 +13,9 @@ export class ReceptionistPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  Logout() {
+    localStorage.removeItem('userToken');
+    this.router.navigate(['/']);
+  }
+
 }
