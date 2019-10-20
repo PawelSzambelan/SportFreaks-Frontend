@@ -29,7 +29,7 @@ export class DateService {
       this.mm = '0' + this.mm;
     }
 
-    return this.dd + '-' + this.mm + '-' + this.yyyy;
+    return this.dd + '.' + this.mm + '.' + this.yyyy;
   }
 
   nextDay() {

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" >SportFreaks</a>
+  <a class="navbar-brand">SportFreaks</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
           aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -30,71 +30,137 @@
   </div>
 </div>
 <div class="row justify-content-center align-items-center my-4 mx-auto w-50">
-  <table class="table table-hover">
+  <table class="table table-striped table-hover">
     <thead>
     <tr>
       <th scope="col">Godzina</th>
-      <th scope="col">Lekcje</th>
+      <th scope="col" style="width: 80%;">Lekcje</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-      <th scope="col">8:00</th>
+      <th scope="row">9:00</th>
+      <th>
+        <ng-template [ngIf]="lessons?.length > 0">
+          <div *ngFor="let lesson of lessons">
+            <div *ngIf="lesson.hour == 9">
+              {{lesson.customerName}}, {{lesson.hour}}
+            </div>
+          </div>
+        </ng-template>
+      </th>
     </tr>
     <tr>
-      <th scope="col">8:30</th>
+      <th scope="row">10:00</th>
+      <th>
+        <ng-template [ngIf]="lessons?.length > 0">
+          <div *ngFor="let lesson of lessons">
+            <div *ngIf="lesson.hour == 10">
+              {{lesson.customerName}}, {{lesson.hour}}
+            </div>
+          </div>
+        </ng-template>
+      </th>
     </tr>
     <tr>
-      <th scope="col">9:00</th>
+      <th scope="row">11:00</th>
+      <th>
+        <ng-template [ngIf]="lessons?.length > 0">
+          <div *ngFor="let lesson of lessons">
+            <div *ngIf="lesson.hour == 11">
+              <p>{{lesson.customerName}} {{lesson.customerSurname}}</p>
+              <p>Tel: {{lesson.phone}}</p>
+            </div>
+          </div>
+        </ng-template>
+      </th>
     </tr>
     <tr>
-      <th scope="col">9:30</th>
+      <th scope="row">12:00</th>
+      <th>
+        <ng-template [ngIf]="lessons?.length > 0">
+          <div *ngFor="let lesson of lessons">
+            <div *ngIf="lesson.hour == 12">
+              <div>{{lesson.customerName}} {{lesson.customerSurname}}<br>
+              Tel: {{lesson.phone}}, ilość osób: {{lesson.customerQuantity}}<br>
+                Wiek: {{lesson.customerAge}}
+<!--                , opłacona: <ng-template *ngIf="lesson.isPaid; else elseBlock">Tak</ng-template>-->
+<!--              <ng-template #elseBlock>Nie</ng-template>-->
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </th>
     </tr>
     <tr>
-      <th scope="col">10:00</th>
+      <th scope="row">13:00</th>
+      <ng-template [ngIf]="lessons?.length > 0">
+        <div *ngFor="let lesson of lessons">
+          <div *ngIf="lesson.hour == 13">
+            {{lesson.customerName}}, {{lesson.hour}}
+          </div>
+        </div>
+      </ng-template>
     </tr>
     <tr>
-      <th scope="col">10:30</th>
+      <th scope="row">14:00</th>
+      <ng-template [ngIf]="lessons?.length > 0">
+        <div *ngFor="let lesson of lessons">
+          <div *ngIf="lesson.hour == 14">
+            {{lesson.customerName}}, {{lesson.hour}}
+          </div>
+        </div>
+      </ng-template>
     </tr>
     <tr>
-      <th scope="col">11:00</th>
+      <th scope="row">15:00</th>
+      <ng-template [ngIf]="lessons?.length > 0">
+        <div *ngFor="let lesson of lessons">
+          <div *ngIf="lesson.hour == 15">
+            {{lesson.customerName}}, {{lesson.hour}}
+          </div>
+        </div>
+      </ng-template>
     </tr>
     <tr>
-      <th scope="col">11:30</th>
+      <th scope="row">16:00</th>
+      <ng-template [ngIf]="lessons?.length > 0">
+        <div *ngFor="let lesson of lessons">
+          <div *ngIf="lesson.hour == 16">
+            {{lesson.customerName}}, {{lesson.hour}}
+          </div>
+        </div>
+      </ng-template>
     </tr>
     <tr>
-      <th scope="col">12:00</th>
+      <th scope="row">17:00</th>
+      <ng-template [ngIf]="lessons?.length > 0">
+        <div *ngFor="let lesson of lessons">
+          <div *ngIf="lesson.hour == 17">
+            {{lesson.customerName}}, {{lesson.hour}}
+          </div>
+        </div>
+      </ng-template>
     </tr>
     <tr>
-      <th scope="col">12:30</th>
+      <th scope="row">18:00</th>
+      <ng-template [ngIf]="lessons?.length > 0">
+        <div *ngFor="let lesson of lessons">
+          <div *ngIf="lesson.hour == 18">
+            {{lesson.customerName}}, {{lesson.hour}}
+          </div>
+        </div>
+      </ng-template>
     </tr>
     <tr>
-      <th scope="col">13:00</th>
-    </tr>
-    <tr>
-      <th scope="col">13:30</th>
-    </tr>
-    <tr>
-      <th scope="col">14:00</th>
-    </tr>
-    <tr>
-      <th scope="col">14:30</th>
-    </tr>
-    <tr>
-      <th scope="col">15:00</th>
-    </tr>
-    <tr>
-      <th scope="col">15:30</th>
-    </tr>
-
-
-    <tr class="table-dark">
-      <th scope="row">Dark</th>
-      <td>Column content</td>
-    </tr>
-    <tr>
-      <th scope="row">Default</th>
-      <td>Column content</td>
+      <th scope="row">19:00</th>
+      <ng-template [ngIf]="lessons?.length > 0">
+        <div *ngFor="let lesson of lessons">
+          <div *ngIf="lesson.hour == 19">
+            {{lesson.customerName}}, {{lesson.hour}}
+          </div>
+        </div>
+      </ng-template>
     </tr>
     </tbody>
   </table>

@@ -31,4 +31,14 @@ export class UserService {
     return this.http.post(this.apiURL + '/users/signin', data, {headers: reqHeader});
   }
 
+  getLessons(token: string, date: string) {
+    const header = new HttpHeaders().set('auth-token', token);
+    return this.http.get(this.apiURL + '/users/userLessons/' + date, {headers: header});
+  }
+
+  // getLessons(token: string) {
+  //   const header = new HttpHeaders().set('auth-token', token);
+  //   return this.http.get(this.apiURL + '/users/userLessons', {headers: header});
+  // }
+
 }

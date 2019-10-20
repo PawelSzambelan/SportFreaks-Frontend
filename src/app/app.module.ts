@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {UserService} from './shared/user.service';
 import {DateService} from 'src/app/shared/date.service';
+import {LessonService} from './shared/lesson.service';
 import {AuthGuard} from './auth/auth.guard';
 
 
@@ -34,6 +35,7 @@ import { ReceptionistPageComponent } from './receptionist-page/receptionist-page
     UserService,
     DateService,
     AuthGuard,
+    LessonService,
   ],
   bootstrap: [AppComponent]
 })
