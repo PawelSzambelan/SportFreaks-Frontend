@@ -1,0 +1,20 @@
+/*.table thead tbody{*/
+/*  text-align: center;*/
+/*}*/
+
+/*.table tr th td{*/
+/*  position: absolute;*/
+/*  width: 20px;*/
+/*  text-align: center;*/
+/*  vertical-align: middle;*/
+/*}*/
+
+
+.table thead {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}

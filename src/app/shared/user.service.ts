@@ -41,4 +41,8 @@ export class UserService {
   //   return this.http.get(this.apiURL + '/users/userLessons', {headers: header});
   // }
 
+  getInstructors() {
+    return this.http.get(this.apiURL + '/users');
+  }
+
 }
