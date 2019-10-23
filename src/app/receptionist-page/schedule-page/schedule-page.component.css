@@ -1,0 +1,15 @@
+.table thead {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+  /*border-right: solid black 1px;*/
+  /*border-bottom: solid black 1px;*/
+}
+
+tr {
+  height: 53px;
+}

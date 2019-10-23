@@ -39,4 +39,8 @@ export class DateService {
   previousDay() {
     this.selectedDate.setDate(this.selectedDate.getDate() - 1);
   }
+
+  chooseDay() {
+    // this.selectedDate.;
+  }
 }

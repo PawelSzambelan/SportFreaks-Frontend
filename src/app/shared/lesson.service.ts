@@ -8,5 +8,7 @@ export class LessonService {
   constructor(private http: HttpClient) {
   }
 
-
+  getLessons(date: string) {
+    return this.http.get(this.apiURL + '/lessons/' + date);
+  }
 }

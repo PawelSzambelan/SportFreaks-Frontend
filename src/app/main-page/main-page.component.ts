@@ -26,7 +26,7 @@ export class MainPageComponent implements OnInit {
         if (data.userRuleName === 'instructor') {
           this.router.navigate(['/instructor']);
         } else if (data.userRuleName === 'receptionist' || data.userRuleName === 'admin') {
-          this.router.navigate(['/reception']);
+          this.router.navigate(['/reception/schedule']);
         }
       },
       (err: HttpErrorResponse) => {
