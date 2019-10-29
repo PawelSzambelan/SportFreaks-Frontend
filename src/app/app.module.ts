@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import {AppRoutingModule} from './app-routing.module';
@@ -17,7 +18,9 @@ import {InstructorPageComponent} from './instructor-main-page/instructor-page.co
 import {ReceptionistPageComponent} from './receptionist-page/receptionist-page.component';
 import {SchedulePageComponent} from './receptionist-page/schedule-page/schedule-page.component';
 import {WorkersListPageComponent} from './receptionist-page/workers-list-page/workers-list-page.component';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule} from '@angular/material';
+import {EmployeeAddComponent} from './receptionist-page/workers-list-page/employee-add/employee-add.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,21 @@ import {WorkersListPageComponent} from './receptionist-page/workers-list-page/wo
     InstructorPageComponent,
     ReceptionistPageComponent,
     SchedulePageComponent,
-    WorkersListPageComponent
+    WorkersListPageComponent,
+    EmployeeAddComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [
     UserService,
@@ -41,7 +51,8 @@ import {WorkersListPageComponent} from './receptionist-page/workers-list-page/wo
     AuthGuard,
     LessonService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EmployeeAddComponent]
 })
 export class AppModule {
 }

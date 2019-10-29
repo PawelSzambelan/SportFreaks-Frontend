@@ -23,9 +23,9 @@ export class MainPageComponent implements OnInit {
         console.log(data); // wyświetlenie tokenu
         localStorage.setItem('userToken', data.token);
         console.log(data.userRuleName);
-        if (data.userRuleName === 'instructor') {
+        if (data.userRuleName === 'Instruktor') {
           this.router.navigate(['/instructor']);
-        } else if (data.userRuleName === 'receptionist' || data.userRuleName === 'admin') {
+        } else if (data.userRuleName === 'Biuro' || data.userRuleName === 'Administrator') {
           this.router.navigate(['/reception/schedule']);
         }
       },

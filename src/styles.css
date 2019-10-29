@@ -10798,3 +10798,6 @@ label,
 .modal-header .close:hover, .modal-header .close:focus, .modal-footer .close:hover, .modal-footer .close:focus {
   opacity: 1;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

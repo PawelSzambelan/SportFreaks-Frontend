@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-// import {Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {User} from '../models/user.model';
 
 @Injectable()
@@ -41,9 +41,26 @@ export class UserService {
   //   return this.http.get(this.apiURL + '/users/userLessons', {headers: header});
   // }
 
+  getLoggedInUser(token: string) {
+    const header = new HttpHeaders().set('auth-token', token);
+    return this.http.get(this.apiURL + '/users/user', {headers: header});
+  }
+
   getInstructors() {
     return this.http.get(this.apiURL + '/users/instructors');
     // return this.http.get(this.apiURL + '/users');
+  }
+
+  getReceptionists() {
+    return this.http.get(this.apiURL + '/users/receptionists');
+  }
+
+  getAdmins() {
+    return this.http.get(this.apiURL + '/users/admins');
+  }
+
+  getRules() {
+    return this.http.get(this.apiURL + '/users/rules');
   }
 
 }
