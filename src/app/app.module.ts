@@ -11,6 +11,7 @@ import {UserService} from './shared/user.service';
 import {DateService} from 'src/app/shared/date.service';
 import {LessonService} from './shared/lesson.service';
 import {AuthGuard} from './auth/auth.guard';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material';
 
 
 import {MainPageComponent} from './main-page/main-page.component';
@@ -19,8 +20,10 @@ import {ReceptionistPageComponent} from './receptionist-page/receptionist-page.c
 import {SchedulePageComponent} from './receptionist-page/schedule-page/schedule-page.component';
 import {WorkersListPageComponent} from './receptionist-page/workers-list-page/workers-list-page.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule} from '@angular/material';
+import {MatFormFieldModule, MatGridListModule, MatInputModule, MatOptionModule, MatSelectModule} from '@angular/material';
 import {EmployeeAddComponent} from './receptionist-page/workers-list-page/employee-add/employee-add.component';
+import { EmployeesListPageComponent } from './receptionist-page/employees-list-page/employees-list-page.component';
+import { EmployeeComponent } from './receptionist-page/employees-list-page/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import {EmployeeAddComponent} from './receptionist-page/workers-list-page/employ
     SchedulePageComponent,
     WorkersListPageComponent,
     EmployeeAddComponent,
+    EmployeesListPageComponent,
+    EmployeeComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,16 +48,19 @@ import {EmployeeAddComponent} from './receptionist-page/workers-list-page/employ
     MatFormFieldModule,
     MatInputModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    MatSnackBarModule
   ],
   providers: [
     UserService,
     DateService,
     AuthGuard,
     LessonService,
+    MatSnackBar
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EmployeeAddComponent]
+  entryComponents: [EmployeeAddComponent, EmployeeComponent]
 })
 export class AppModule {
 }

@@ -46,7 +46,7 @@ export class EmployeeAddComponent implements OnInit {
 
   OnSubmit(form: NgForm) {
     console.log(form.value);
-    this.userService.registerUser(form.value).subscribe((data: any) => {
+    this.userService.addEmployee(form.value).subscribe((data: any) => {
         this.router.navigate(['/reception/workers']);
       },
       (err: HttpErrorResponse) => {

@@ -6,6 +6,7 @@ import {InstructorPageComponent} from './instructor-main-page/instructor-page.co
 import {MainPageComponent} from './main-page/main-page.component';
 import {ReceptionistPageComponent} from './receptionist-page/receptionist-page.component';
 import {SchedulePageComponent} from './receptionist-page/schedule-page/schedule-page.component';
+import { EmployeesListPageComponent } from './receptionist-page/employees-list-page/employees-list-page.component';
 import {WorkersListPageComponent} from './receptionist-page/workers-list-page/workers-list-page.component';
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
     path: 'reception', component: ReceptionistPageComponent, canActivate: [AuthGuard],
     children: [
       {path: 'schedule', component: SchedulePageComponent},
+      {path: 'employees', component: EmployeesListPageComponent},
       {path: 'workers', component: WorkersListPageComponent}
     ]
   },
@@ -33,4 +35,4 @@ export class AppRoutingModule {
 }
 
 export const routingComponents = [MainPageComponent, InstructorPageComponent, ReceptionistPageComponent,
-  SchedulePageComponent, WorkersListPageComponent];
+  SchedulePageComponent, EmployeesListPageComponent, WorkersListPageComponent];

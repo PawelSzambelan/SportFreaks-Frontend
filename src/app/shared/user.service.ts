@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {User} from '../models/user.model';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import * as _ from 'lodash';
 
 @Injectable()
 export class UserService {
@@ -10,18 +11,39 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
+  updateEmplyeeId: any;
 
-  registerUser(user: User) {
+  form: FormGroup = new FormGroup({
+    // $key: new FormControl(null),
+    name: new FormControl('', Validators.required),
+    surname: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.email),
+    phone: new FormControl('', [Validators.required, Validators.minLength(9),  Validators.maxLength(9)]),
+    rule: new FormControl(0, Validators.required),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)])
+  });
+
+  addEmployee(employee: User) {
     const userBody: User = {
-      name: user.name,
-      surname: user.surname,
-      email: user.email,
-      password: user.password,
-      phone: user.phone,
-      rule: user.rule,
+      name: employee.name,
+      surname: employee.surname,
+      email: employee.email,
+      password: employee.password,
+      phone: employee.phone,
+      rule: employee.rule,
     };
     const reqHeader = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(this.apiURL + '/users/signup', userBody, {headers: reqHeader});
+  }
+
+  updateEmployee(employee: User) {
+    return this.http.put(this.apiURL + '/users/updateUser/' + this.updateEmplyeeId, employee);
+    // return this.http.patch(this.apiURL + '/users/updateUser/' + this.updateEmplyeeId, employee);
+  }
+
+  populateForm(employee) {
+    this.updateEmplyeeId = employee._id;
+    this.form.patchValue(_.omit(employee, ['lessons', '_id']));
   }
 
   userAuthentication(email: string, password: string) {
