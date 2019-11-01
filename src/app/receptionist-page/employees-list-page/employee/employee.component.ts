@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../shared/user.service';
-import {NavigationEnd, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {MatDialogRef} from '@angular/material';
 import {NotificationService} from '../../../shared/notification.service';
 
@@ -12,7 +12,6 @@ import {NotificationService} from '../../../shared/notification.service';
 export class EmployeeComponent implements OnInit {
 
   rules: any = [];
-  mySubscription: any;
 
   constructor(private userService: UserService, private router: Router, public dialogRef: MatDialogRef<EmployeeComponent>,
               private notificationService: NotificationService) {
@@ -23,24 +22,26 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.userService.form.valid) {
-      if (!this.userService.form.get('email').value) {
-        this.userService.addEmployee(this.userService.form.value).subscribe((data: any) => {
-            this.router.navigate(['/reception/employees']);
-          },
-        );
-      } else {
-        this.userService.updateEmployee(this.userService.form.value).subscribe((data: any) => {
-            this.router.navigate(['/reception/employees']);
-          },
-        );
-      }
-
-      this.dialogRef.close();
-      // window.location.reload();
-      this.userService.form.reset();
-      this.notificationService.success('Operacja wykonana pomyślnie');
+    // if below is for check if we want to add or edit employee
+    if (!this.userService.editEmployeeId) {
+      this.userService.addEmployee(this.userService.form.value).subscribe((data: any) => {
+          this.router.navigate(['/reception/employees']);
+        },
+      );
+    } else {
+      this.userService.updateEmployee(this.userService.form.value).subscribe((data: any) => {
+        this.router.navigate(['/reception/employees']);
+        this.userService.editEmployeeId = null;
+      });
     }
+    this.dialogRef.close();
+    this.userService.form.reset();
+    this.notificationService.success('Operacja wykonana pomyślnie');
+  }
+
+  onClose() {
+    this.userService.form.reset();
+    this.dialogRef.close();
   }
 
   loadRules() {

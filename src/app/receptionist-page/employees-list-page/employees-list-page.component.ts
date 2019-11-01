@@ -3,8 +3,9 @@ import {NavigationEnd, Router} from '@angular/router';
 import {UserService} from '../../shared/user.service';
 import {ReceptionistPageComponent} from '../receptionist-page.component';
 import {MatDialog, MatDialogConfig} from '@angular/material';
-import {EmployeeAddComponent} from '../workers-list-page/employee-add/employee-add.component';
 import {EmployeeComponent} from './employee/employee.component';
+import {NotificationService} from '../../shared/notification.service';
+import {DialogService} from '../../shared/dialog.service';
 
 @Component({
   selector: 'app-employees-list-page',
@@ -16,10 +17,14 @@ export class EmployeesListPageComponent implements OnInit {
   receptionists: any = [];
   admins: any = [];
 
-  constructor(private router: Router, private userService: UserService, private officeComponent: ReceptionistPageComponent,
-              private dialog: MatDialog) {
+  constructor(private router: Router,
+              private userService: UserService,
+              private officeComponent: ReceptionistPageComponent,
+              private dialog: MatDialog,
+              private notificationService: NotificationService,
+              private dialogService: DialogService) {
 
-    // refreshing the list of employyes after adding
+    // refreshing the list of employyes after adding or editing
     // tslint:disable-next-line:only-arrow-functions
     this.router.routeReuseStrategy.shouldReuseRoute = function() {
       return false;
@@ -63,7 +68,7 @@ export class EmployeesListPageComponent implements OnInit {
 
   createEmployee() {
     const dialogConfig = new MatDialogConfig();
-    // cannot close window by cliking outside it or ecs
+    // cannot close window by cliking outside it or esc
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '50%';
@@ -77,5 +82,27 @@ export class EmployeesListPageComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = '50%';
     this.dialog.open(EmployeeComponent, dialogConfig);
+    this.router.navigate(['/reception/employees']);
+  }
+
+  deleteEmployee(employeeId) {
+    // if (confirm('Are you sure to delete this employee ?')) {
+    //   this.userService.deleteEmployee(employeeId).subscribe();
+    //   this.notificationService.warn('Employee deleted successfully');
+    //   setTimeout(() => {
+    //     this.router.navigate(['/reception/employees']);
+    //   }, 50);
+    // }
+
+    this.dialogService.openConfirmDialog('Are you sure about this deletion ?')
+      .afterClosed().subscribe(res => {
+      if (res) {
+        this.userService.deleteEmployee(employeeId).subscribe();
+        this.notificationService.warn('Employee deleted successfully');
+        setTimeout(() => {
+          this.router.navigate(['/reception/employees']);
+        }, 50);
+      }
+    });
   }
 }

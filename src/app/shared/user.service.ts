@@ -11,10 +11,9 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  updateEmplyeeId: any;
+  editEmployeeId: any;
 
   form: FormGroup = new FormGroup({
-    // $key: new FormControl(null),
     name: new FormControl('', Validators.required),
     surname: new FormControl('', Validators.required),
     email: new FormControl('', Validators.email),
@@ -37,18 +36,21 @@ export class UserService {
   }
 
   updateEmployee(employee: User) {
-    return this.http.put(this.apiURL + '/users/updateUser/' + this.updateEmplyeeId, employee);
+    return this.http.put(this.apiURL + '/users/updateUser/' + this.editEmployeeId, employee);
     // return this.http.patch(this.apiURL + '/users/updateUser/' + this.updateEmplyeeId, employee);
   }
 
+  deleteEmployee(employeeId: string) {
+    return this.http.delete(this.apiURL + '/users/deleteUser/' + employeeId);
+  }
+
   populateForm(employee) {
-    this.updateEmplyeeId = employee._id;
+    this.editEmployeeId = employee._id;
     this.form.patchValue(_.omit(employee, ['lessons', '_id']));
   }
 
   userAuthentication(email: string, password: string) {
     const data = JSON.stringify({email, password});
-    console.log(data);
     const reqHeader = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(this.apiURL + '/users/signin', data, {headers: reqHeader});
   }

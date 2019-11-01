@@ -1,44 +1,9 @@
-<!--<form [formGroup]="employeeService.form" class="normal-form">-->
-<!--  <mat-grid-list cols="2" rowHeight="300px">-->
-<!--    <mat-grid-list>-->
-<!--      <div class="controles-container">-->
-<!--        <input type="hidden" formControlName="$key">-->
-<!--        <mat-form-field>-->
-<!--          <input formControlName="name" matInput placeholder="Imię">-->
-<!--        </mat-form-field>-->
-<!--        <mat-form-field>-->
-<!--          <input formControlName="surname" matInput placeholder="Nazwisko">-->
-<!--        </mat-form-field>-->
-<!--        <mat-form-field>-->
-<!--          <input formControlName="email" matInput placeholder="Email">-->
-<!--        </mat-form-field>-->
-<!--      </div>-->
-<!--    </mat-grid-list>-->
-<!--    <mat-grid-list>-->
-<!--      <div class="controles-container">-->
-<!--        <mat-form-field>-->
-<!--          <input formControlName="phone" matInput placeholder="Telefon">-->
-<!--        </mat-form-field>-->
-<!--        <mat-form-field>-->
-<!--          <mat-select formControlName="rule" placeholder="Rola">-->
-<!--              <mat-option *ngFor="let rule of rules" value="{{rule._id}}">{{rule.name}}</mat-option>-->
-<!--          </mat-select>-->
-<!--        </mat-form-field>-->
-<!--        <mat-form-field>-->
-<!--          <input formControlName="password" matInput placeholder="Hasło">-->
-<!--        </mat-form-field>-->
-<!--      </div>-->
-<!--    </mat-grid-list>-->
-<!--  </mat-grid-list>-->
-<!--</form>-->
-
-
+<button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 <form [formGroup]="userService.form" class="normal-form" (submit)="onSubmit()">
 
   <div id="login-row" class="row justify-content-center align-items-top">
     <div id="login-column" class="text-center col-md-10 mr-10">
       <h3>Dane pracownika</h3><br>
-<!--      <input type="hidden" formControlName="$key">-->
       <mat-form-field>
         <label class="text-primary">Imię:</label>
         <input matInput formControlName="name">

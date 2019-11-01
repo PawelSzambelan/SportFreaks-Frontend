@@ -20,9 +20,8 @@ export class MainPageComponent implements OnInit {
 
   OnSubmit(email, password) {
     this.userService.userAuthentication(email, password).subscribe((data: any) => {
-        console.log(data); // wyświetlenie tokenu
+        // console.log(data); // wyświetlenie tokenu
         localStorage.setItem('userToken', data.token);
-        console.log(data.userRuleName);
         if (data.userRuleName === 'Instruktor') {
           this.router.navigate(['/instructor']);
         } else if (data.userRuleName === 'Biuro' || data.userRuleName === 'Administrator') {

@@ -21,7 +21,7 @@
       </td>
       <td>
         <button type="button" class="btn btn-outline-warning" (click)="editEmployee(instructor)">Edycja</button>
-        <button type="button" class="btn btn-outline-danger">Usuń</button>
+        <button type="button" class="btn btn-outline-danger" (click)="deleteEmployee(instructor._id)">Usuń</button>
       </td>
     </tr>
     </tbody>
@@ -46,7 +46,7 @@
       </td>
       <td>
         <button type="button" class="btn btn-outline-warning" (click)="editEmployee(receptionist)">Edycja</button>
-        <button type="button" class="btn btn-outline-danger" *ngIf="officeComponent.loggedInUserRuleName == 'Administrator'">Usuń</button>
+        <button type="button" class="btn btn-outline-danger" *ngIf="officeComponent.loggedInUserRuleName == 'Administrator'" (click)="deleteEmployee(receptionist._id)">Usuń</button>
       </td>
     </tr>
     </tbody>
@@ -71,7 +71,7 @@
       </td>
       <td *ngIf="officeComponent.loggedInUserRuleName == 'Administrator'">
         <button type="button" class="btn btn-outline-warning" (click)="editEmployee(admin)">Edycja</button>
-        <button type="button" class="btn btn-outline-danger">Usuń</button>
+        <button type="button" class="btn btn-outline-danger" (click)="deleteEmployee(admin._id)">Usuń</button>
       </td>
     </tr>
     </tbody>
