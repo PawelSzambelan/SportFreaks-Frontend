@@ -86,14 +86,6 @@ export class EmployeesListPageComponent implements OnInit {
   }
 
   deleteEmployee(employeeId) {
-    // if (confirm('Are you sure to delete this employee ?')) {
-    //   this.userService.deleteEmployee(employeeId).subscribe();
-    //   this.notificationService.warn('Employee deleted successfully');
-    //   setTimeout(() => {
-    //     this.router.navigate(['/reception/employees']);
-    //   }, 50);
-    // }
-
     this.dialogService.openConfirmDialog('Are you sure about this deletion ?')
       .afterClosed().subscribe(res => {
       if (res) {

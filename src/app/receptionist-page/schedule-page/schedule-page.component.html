@@ -32,16 +32,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let instructor of instructors; index as i">
+    <tr *ngFor="let instructor of instructors">
       <td>{{instructor.name}} {{instructor.surname}}</td>
       <ng-container *ngFor="let lesson of instructor[0]; index as j">
         <td *ngIf="lesson">
-          {{lesson.customerName}} {{lesson.customerSurname}} <br>
-          Tel: {{lesson.phone}} <br>
-          <!--                , opłacona: <ng-template *ngIf="lesson.isPaid; else elseBlock">Tak</ng-template>-->
-          <!--              <ng-template #elseBlock>Nie</ng-template>-->
+          <a style="text-decoration:none" href="javascript:void(0)" (click)="deleteLesson(lesson._id, instructor._id)">
+             {{lesson[0].customerName}} {{lesson[0].customerSurname}} <br>
+          Tel: {{lesson[0].phone}} <br>
+          </a>
         </td>
-        <td *ngIf="!lesson">+</td>
+        <td *ngIf="!lesson" >
+          <a href="javascript:void(0)" (click)="addLesson(instructor, j, dateService.getFormattedDate())">+</a>
+        </td>
       </ng-container>
     </tr>
     </tbody>

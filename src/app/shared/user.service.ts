@@ -70,8 +70,13 @@ export class UserService {
     return this.http.get(this.apiURL + '/users/user', {headers: header});
   }
 
+  getCustomers() {
+    return this.http.get(this.apiURL + '/users/customers');
+  }
+
   getInstructors() {
     return this.http.get(this.apiURL + '/users/instructors');
+    // if i want every user (instructors, office and admins)
     // return this.http.get(this.apiURL + '/users');
   }
 

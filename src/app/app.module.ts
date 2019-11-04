@@ -23,6 +23,7 @@ import {MatFormFieldModule, MatGridListModule, MatInputModule, MatOptionModule, 
 import { EmployeesListPageComponent } from './receptionist-page/employees-list-page/employees-list-page.component';
 import { EmployeeComponent } from './receptionist-page/employees-list-page/employee/employee.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { LessonComponent } from './receptionist-page/schedule-page/lesson/lesson.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     EmployeesListPageComponent,
     EmployeeComponent,
     ConfirmDialogComponent,
+    LessonComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatSnackBar
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EmployeeComponent, ConfirmDialogComponent]
+  entryComponents: [EmployeeComponent, ConfirmDialogComponent, LessonComponent]
 })
 export class AppModule {
 }

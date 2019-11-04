@@ -1,0 +1,64 @@
+<button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+  <mat-icon>clear</mat-icon>
+</button>
+<form [formGroup]="lessonService.lessonForm" class="normal-form" (submit)="onSubmit()">
+
+  <div id="login-row" class="row justify-content-center align-items-top">
+    <div id="login-column" class="text-center col-md-10 mr-10">
+      <h3>Lekcja</h3><br>
+      <mat-form-field>
+        <label class="text-primary">Imię:</label>
+        <input matInput formControlName="customerName">
+        <mat-error>To pole musi być wypełnione</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <label class="text-primary">Nazwisko:</label>
+        <input matInput formControlName="customerSurname">
+        <mat-error>To pole musi być wypełnione</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <label class="text-primary">Telefon:</label>
+        <input matInput formControlName="phone">
+        <mat-error *ngIf="lessonService.lessonForm.controls['phone'].errors?.required">To pole musi być wypełnione
+        </mat-error>
+        <mat-error *ngIf="lessonService.lessonForm.controls['phone'].errors?.minlength">Podałeś mniej niż 9 cyfr
+        </mat-error>
+        <mat-error *ngIf="lessonService.lessonForm.controls['phone'].errors?.maxlength">Podałeś więcej niż 9 cyfr
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <label class="text-primary">Wiek:</label>
+        <input matInput formControlName="customerAge">
+        <!--        <mat-select formControlName="rule">-->
+        <!--          <mat-option *ngFor="let rule of rules" value="{{rule._id}}">-->
+        <!--            {{rule.name}}-->
+        <!--          </mat-option>-->
+        <!--        </mat-select>-->
+        <mat-error>To pole musi być wypełnione</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <label class="text-primary">Ilość:</label>
+        <input matInput formControlName="customerQuantity">
+        <mat-error>To pole musi być wypełnione</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <label class="text-primary">Godzina:</label>
+        <input matInput formControlName="hour">
+      </mat-form-field>
+      <mat-form-field>
+        <label class="text-primary">Instruktor:</label>
+        <input matInput formControlName="instructor">
+      </mat-form-field>
+      <mat-form-field>
+        <label class="text-primary">Data:</label>
+        <input matInput formControlName="date" [attr.disabled]="true">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="col-md-16 my-4 text-center ">
+    <button [disabled]="lessonService.lessonForm.invalid" type="submit" class="btn btn-outline-primary">Potwierdź
+    </button>
+  </div>
+
+</form>
