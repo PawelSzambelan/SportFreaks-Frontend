@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand">SportFreaks</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a href="javascript:void(0)" class="nav-link js-scroll-trigger cursor-pointer" (click)="editingProfile()">Twoje konto</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link js-scroll-trigger cursor-pointer" (click)="Logout()" href>Wyloguj</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- buttons to navigate between days -->
+<div class="row justify-content-center align-items-center my-4 mx-auto w-50">
+
+  <div class="col-xs-2 page-item active">
+    <button (click)="previousDay();" class="page-link">&laquo;</button>
+  </div>
+  <div class="col-xs-8 page-item">
+    <!--    poprawić, żeby po kliknięciu wyświetlało cały kalendarz w wyborem danego dnia :-)-->
+    <button class="page-link" (click)="chooseDay();">{{dateService.getFormattedDate()}}</button>
+  </div>
+  <div class="col-xs-2 page-item active">
+    <button (click)="nextDay();" class="page-link">&raquo;</button>
+  </div>
+</div>
+
+
+<div class="row justify-content-center align-items-center my-4 mx-auto w-50">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Godzina</th>
+      <th scope="col" style="width: 80%;">Lekcje</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let lesson of lessonsArray; index as i">
+      <th scope="row">{{i+9}}:00</th>
+      <th>
+      <div *ngIf="lesson">
+        <div>{{lesson[0].customerName}} {{lesson[0].customerSurname}}, {{lesson[0].customerAge}} <br>
+          Tel: {{lesson[0].phone}}, ilość osób: {{lesson.customerQuantity}}<br>
+        </div>
+      </div>
+      <div *ngIf="!lesson">-</div>
+      </th>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

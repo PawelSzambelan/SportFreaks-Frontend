@@ -11,6 +11,18 @@ import {NotificationService} from '../../../shared/notification.service';
 })
 export class LessonComponent implements OnInit {
 
+  customerAge = [
+    'dziecko 2-5',
+    'dziecko 5-9',
+    'dziecko 10-13',
+    'nastolatek',
+    'młody dorosły',
+    'dorosły',
+    'senior'
+  ];
+
+  customerQuantity = [1, 2, 3, 4, 5];
+
   constructor(private lessonService: LessonService,
               public dialogRef: MatDialogRef<LessonComponent>,
               private router: Router,

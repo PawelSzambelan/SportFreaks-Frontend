@@ -28,17 +28,22 @@
       </mat-form-field>
       <mat-form-field>
         <label class="text-primary">Wiek:</label>
-        <input matInput formControlName="customerAge">
-        <!--        <mat-select formControlName="rule">-->
-        <!--          <mat-option *ngFor="let rule of rules" value="{{rule._id}}">-->
-        <!--            {{rule.name}}-->
-        <!--          </mat-option>-->
-        <!--        </mat-select>-->
+<!--        <input matInput formControlName="customerAge">-->
+                <mat-select formControlName="customerAge">
+                  <mat-option *ngFor="let age of customerAge" value="{{age}}">
+                    {{age}}
+                  </mat-option>
+                </mat-select>
         <mat-error>To pole musi być wypełnione</mat-error>
       </mat-form-field>
       <mat-form-field>
         <label class="text-primary">Ilość:</label>
-        <input matInput formControlName="customerQuantity">
+<!--        <input matInput formControlName="customerQuantity">-->
+        <mat-select formControlName="customerQuantity">
+          <mat-option *ngFor="let quqantity of customerQuantity" value="{{quqantity}}">
+            {{quqantity}}
+          </mat-option>
+        </mat-select>
         <mat-error>To pole musi być wypełnione</mat-error>
       </mat-form-field>
       <mat-form-field>
@@ -51,7 +56,7 @@
       </mat-form-field>
       <mat-form-field>
         <label class="text-primary">Data:</label>
-        <input matInput formControlName="date" [attr.disabled]="true">
+        <input matInput formControlName="date">
       </mat-form-field>
     </div>
 

@@ -15,7 +15,7 @@ import {MatButtonModule, MatIconModule, MatSnackBar, MatSnackBarModule} from '@a
 
 
 import {MainPageComponent} from './main-page/main-page.component';
-import {InstructorPageComponent} from './instructor-main-page/instructor-page.component';
+import {InstructorPageComponent} from './instructor-page/instructor-page.component';
 import {ReceptionistPageComponent} from './receptionist-page/receptionist-page.component';
 import {SchedulePageComponent} from './receptionist-page/schedule-page/schedule-page.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,6 +24,7 @@ import { EmployeesListPageComponent } from './receptionist-page/employees-list-p
 import { EmployeeComponent } from './receptionist-page/employees-list-page/employee/employee.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { LessonComponent } from './receptionist-page/schedule-page/lesson/lesson.component';
+import { ProfileEditComponent } from './instructor-page/profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LessonComponent } from './receptionist-page/schedule-page/lesson/lesson
     EmployeeComponent,
     ConfirmDialogComponent,
     LessonComponent,
+    ProfileEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,10 +61,11 @@ import { LessonComponent } from './receptionist-page/schedule-page/lesson/lesson
     DateService,
     AuthGuard,
     LessonService,
-    MatSnackBar
+    MatSnackBar,
+    InstructorPageComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EmployeeComponent, ConfirmDialogComponent, LessonComponent]
+  entryComponents: [EmployeeComponent, ConfirmDialogComponent, LessonComponent, ProfileEditComponent]
 })
 export class AppModule {
 }

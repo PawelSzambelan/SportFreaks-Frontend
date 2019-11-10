@@ -127,14 +127,14 @@ export class SchedulePageComponent implements OnInit {
     this.dialog.open(LessonComponent, dialogConfig);
   }
 
-  deleteLesson(lessonId: string, instructorId: string) {
+  deleteLesson(lessonId: string) {
     this.dialogService.openConfirmDialog('Are you sure about this deletion ?')
       .afterClosed().subscribe(res => {
       if (res) {
-        this.lessonService.deleteLesson(lessonId, instructorId).subscribe();
-        this.notificationService.warn('Employee deleted successfully');
+        this.lessonService.deleteLesson(lessonId).subscribe();
+        this.notificationService.warn('Lesson deleted successfully');
         setTimeout(() => {
-          this.router.navigate(['/reception/employees']);
+          this.router.navigate(['/reception/schedule']);
         }, 50);
       }
     });

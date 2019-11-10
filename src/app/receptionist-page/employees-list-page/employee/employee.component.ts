@@ -26,8 +26,7 @@ export class EmployeeComponent implements OnInit {
     if (!this.userService.editEmployeeId) {
       this.userService.addEmployee(this.userService.form.value).subscribe((data: any) => {
           this.router.navigate(['/reception/employees']);
-        },
-      );
+        });
     } else {
       this.userService.updateEmployee(this.userService.form.value).subscribe((data: any) => {
         this.router.navigate(['/reception/employees']);

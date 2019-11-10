@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AuthGuard} from './auth/auth.guard';
 
-import {InstructorPageComponent} from './instructor-main-page/instructor-page.component';
+import {InstructorPageComponent} from './instructor-page/instructor-page.component';
 import {MainPageComponent} from './main-page/main-page.component';
 import {ReceptionistPageComponent} from './receptionist-page/receptionist-page.component';
 import {SchedulePageComponent} from './receptionist-page/schedule-page/schedule-page.component';

@@ -57,7 +57,7 @@ export class LessonService {
   }
 
 
-  deleteLesson(lessonId: string, instructorId: string) {
-    return this.http.delete(this.apiURL + '');
+  deleteLesson(lessonId: string) {
+    return this.http.delete(this.apiURL + '/lessons/deleteLesson/' + lessonId) ;
   }
 }
